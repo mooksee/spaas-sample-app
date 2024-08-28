@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spaas-sample-app
+  namespace: spaaslab
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spaas-sample-app
+  template:
+    metadata:
+      labels:
+        app: spaas-sample-app
+    spec:
+      containers:
+        - name: spaas-jar-sample
+          image: acrlabspaas.azurecr.io/spaas-jar-sample:latest
